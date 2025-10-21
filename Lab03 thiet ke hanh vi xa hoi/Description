@@ -1,0 +1,10 @@
+Công cụ: Webots
+
+Yêu cầu:
+
+Trường hợp 1 (1 người): Lập trình robot di chuyển trong môi trường đơn giản. Khi gặp “người”, robot dừng lại, quay mặt về phía người hoặc nháy đèn LED để “chào”.
+
+Trường hợp 2 (2 người): Có hai “người” đứng gần nhau; robot cần đến vị trí đằng sau họ. Lập trình robot tự động điều chỉnh quỹ đạo để đi vòng phía sau (tránh cắt ngang trước mặt), sau đó dừng lại ở vị trí đích và thực hiện cử chỉ xã hội (quay mặt hoặc nháy đèn LED).
+
+
+Tìm hiểu môi trường trong nhà với robot hình người ở https://drive.google.com/drive/folders/12kjX5rhGCj7fwe0XEqkXm_PBrqO2ilH_
