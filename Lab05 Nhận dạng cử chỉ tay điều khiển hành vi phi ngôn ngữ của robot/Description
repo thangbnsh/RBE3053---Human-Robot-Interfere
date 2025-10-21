@@ -1,0 +1,70 @@
+Mục tiêu chung
+Xây dựng một pipeline gồm 3 thành phần:
+
+Module nhận dạng cử chỉ tay (rule-based hoặc ML nhẹ, dùng webcam/video)
+Module điều khiển robot trong Webots (nhận lệnh qua socket hoặc HTTP)
+Tích hợp pipeline hoàn chỉnh để ánh xạ cử chỉ → hành vi phi ngôn ngữ của robot
+PHẦN 1: Nhận dạng cử chỉ tay
+Mục tiêu
+Xây dựng module Python nhận diện các cử chỉ tay cơ bản từ webcam hoặc video có sẵn.
+
+Yêu cầu chi tiết
+Dùng OpenCV + MediaPipe (hoặc model ML nhẹ, ví dụ MobileNet + TensorFlow Lite).
+Nhận dạng ít nhất 3 cử chỉ tay:
+👉 “Giơ tay lên”
+✋ “Dừng lại”
+👋 “Vẫy tay chào”
+Ánh xạ các cử chỉ sang mã lệnh điều khiển đơn giản, ví dụ:
+gesture_map = {
+        "raise_hand": "STOP_AT_DISTANCE",
+
+        "open_hand": "LOOK_AT_HUMAN",
+
+         "wave": "WAVE_BACK"
+
+}
+
+Đầu ra
+In ra console:
+{"gesture": "wave", "confidence": 0.87}
+File Python: gesture_recognition.py
+ 
+
+PHẦN 2: Mô-đun điều khiển robot trong Webots
+Mục tiêu
+Tạo robot mô phỏng có thể thực hiện hành vi phi ngôn ngữ dựa trên lệnh nhận được.
+
+Yêu cầu chi tiết
+Môi trường: Webots + Python controller.
+Robot (có thể dùng Nao, Pepper, hoặc robot tùy chỉnh).
+Các hành vi cần lập trình:
+Quay hướng người dùng (thay đổi hướng “gaze”/thân robot)
+Dừng cách người dùng 1–2 mét (mô phỏng di chuyển và dừng)
+Gật đầu, vẫy tay, bật LED (biểu đạt phi ngôn ngữ)
+Giao tiếp
+Nhận dữ liệu điều khiển qua:
+Socket TCP hoặc HTTP server (Flask).
+Dạng gói tin ví dụ:
+{"command": "WAVE_BACK"}
+Đầu ra
+Mô phỏng robot trong Webots thể hiện hành vi tương ứng.
+File Python: robot_controller.py
+ 
+
+PHẦN 3: Tích hợp pipeline
+Mục tiêu
+Kết nối hai module lại thành hệ thống hoàn chỉnh: webcam → cử chỉ → hành vi robot.
+
+Yêu cầu
+gesture_recognition.py gửi tín hiệu điều khiển đến robot_controller.py.
+Có thể chạy 2 tiến trình riêng:
+Terminal 1:  python robot_controller.py
+Terminal 2: python gesture_recognition.py --video 0
+Giao tiếp thông qua socket hoặc REST API (ví dụ POST /command).
+Mô tả luồng dữ liệu
+Webcam → Gesture Recognition → Socket/HTTP → Webots Controller → Robot Action
+
+Kết quả mong muốn
+Khi người dùng giơ tay, robot dừng lại cách 1–2 m.
+Khi vẫy tay, robot đáp lại bằng động tác vẫy tay.
+Khi mở tay, robot hướng mặt/đèn LED về phía người.
