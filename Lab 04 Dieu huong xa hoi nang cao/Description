@@ -1,1 +1,46 @@
+Mục tiêu: Nâng cấp khả năng của robot từ việc tránh các chướng ngại vật tĩnh sang việc lập kế hoạch đường đi trong một môi trường có nhiều người, bao gồm cả nhóm người đứng yên và người di chuyển. Bài tập này mô phỏng các thách thức cốt lõi mà giải thuật GTEB (được giới thiệu ở cuối slide buổi 4) giải quyết.
+
+Yêu cầu:
+NHIỆM VỤ 1: Tiếp cận một nhóm người - Robot cần di chuyển đến và "tham gia" vào một nhóm gồm 3 "người" đang đứng nói chuyện.
+Thiết lập:
+
+Tạo một nhóm 3 Cylinder (người) đứng gần nhau, tạo thành hình tam giác. (Sử dụng hàm getFromDef)
+
+Sử dụng robot Pioneer 3-DX hoặc TIAGo (nếu có) để có hệ cảm biến tốt hơn (Lidar, GPS, Compass).
+
+Xác định một "vùng tương tác" (interaction zone) ở phía trước và giữa 3 người này. Đây là vị trí đích của robot.
+
+Lập trình:
+
+Robot phải xác định được vị trí của cả 3 người.
+
+Tính toán "tâm" (centroid) của nhóm.
+
+Xác định vị trí tiếp cận lý tưởng (ví dụ: một điểm cách tâm nhóm một khoảng cách xã hội, nằm trên đường phân giác của một góc nhóm).
+
+Điều hướng robot đến vị trí đó và dừng lại, quay mặt về phía tâm của nhóm.
+
+ 
+
+NHIỆM VỤ 2: Tiếp cận nhóm và tránh người đi ngang qua - Đây là kịch bản phức tạp hơn, kết hợp Trường hợp 1 với một yếu tố động.
+Thiết lập:
+
+Giữ nguyên nhóm 3 người đứng yên từ Trường hợp 1.
+
+Thêm một "người" thứ tư (một robot khác hoặc một đối tượng được lập trình di chuyển) đi theo một quỹ đạo cắt ngang đường đi dự kiến của robot chính.
+
+Lập trình:
+
+Robot vẫn xác định mục tiêu là "vùng tương tác" của nhóm như Trường hợp 1 và bắt đầu di chuyển.
+
+Trong khi di chuyển, robot phải liên tục sử dụng cảm biến (Lidar/DistanceSensor) để phát hiện các chướng ngại vật động.
+
+Khi phát hiện "người" đang di chuyển và có nguy cơ va chạm, robot phải:
+
+Lựa chon 1: Giảm tốc độ hoặc dừng lại để người kia đi qua.
+
+Lựa chọn 2: Điều chỉnh nhẹ quỹ đạo để đi vòng phía sau người đang di chuyển, sau đó tiếp tục hướng đến mục tiêu ban đầu.
+
+Sau khi tránh thành công, robot tiếp tục nhiệm vụ tiếp cận nhóm.
+
 
