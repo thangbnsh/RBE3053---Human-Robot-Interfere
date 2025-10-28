@@ -1,0 +1,76 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/humans/pedestrian/protos/Pedestrian.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/adept/pioneer3/protos/Pioneer3dx.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/devices/sick/protos/SickLms291.proto"
+
+WorldInfo {
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.06525282819197022 0.9963514172251703 0.0550083794193567 1.744400779989272
+  position 4.17835761957562 -0.929795899842709 28.677484902609567
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 20 20
+}
+Pioneer3dx {
+  hidden position_0_0 5.692285567848732e-06
+  hidden position_0_1 1347.2296273226345
+  hidden position_0_2 1141.2384952600878
+  hidden linearVelocity_0 0.24630591095190277 0.44760720304110163 1.5789051922717168e-13
+  hidden angularVelocity_0 8.89975971505401e-09 1.6046597240405813e-08 -5.10589693026319e-06
+  hidden rotation_1 0.5773524601514286 -0.5773491737057052 -0.5773491737055078 2.094391713560518
+  hidden position_1_0 -2262.0839922933883
+  hidden linearVelocity_1 0.2463053326140207 0.44760752129319414 -7.720102945273989e-12
+  hidden angularVelocity_1 9.065391748695695e-09 1.63475284823536e-08 -5.155459693380715e-06
+  hidden rotation_2 -1 0 0 0.137281708737159
+  hidden linearVelocity_2 0.24630530288299557 0.44760753765518746 -8.116493314515393e-12
+  hidden angularVelocity_2 -11.936217605150956 6.568111241307576 -9.72340563990659e-06
+  hidden rotation_4 -0.4502926048610117 0.4502926770610794 -0.7710208006225586 1.827954137866765
+  hidden linearVelocity_4 0.24630658005065745 0.4476077761395911 2.973997752888809e-09
+  hidden angularVelocity_4 -4.5908385211982266 2.5262231345408193 -5.570389578326547e-06
+  hidden rotation_9 0.6825966068921174 -0.6825966626747797 0.26100511175956126 3.6522111996567097
+  hidden linearVelocity_9 0.24630578489741253 0.44760633112633885 -2.9662381341636252e-09
+  hidden angularVelocity_9 -4.590838244792294 2.526222982170934 -5.570673114336017e-06
+  translation 4.005691572419774 6.851266675591426 0.09615845511572257
+  rotation 0.01835322304952752 -0.031047884542795785 0.999349382382914 1.0683123416371936
+  controller "Joystick"
+  supervisor TRUE
+  extensionSlot [
+    Receiver {
+    }
+    Compass {
+    }
+    GPS {
+    }
+    SickLms291 {
+    }
+  ]
+}
+DEF pedestrian Pedestrian {
+  translation -2.02113 -0.919951 1.27
+  rotation 0 0 1 0.523601
+}
+DEF pedestrian(1) Pedestrian {
+  translation 0 4 1.27
+  rotation 0 0 1 -1.047195307179586
+  name "pedestrian(1)"
+}
+DEF pedestrian(3) Pedestrian {
+  translation -0.467701 -1.97765 1.37
+  rotation 0 0 1 -1.047195307179586
+  name "pedestrian(3)"
+}
+DEF pedestrian(2) Pedestrian {
+  translation 3.28545 -0.0539335 1.27
+  rotation 0 0 1 2.8798
+  name "pedestrian(2)"
+}
